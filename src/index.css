@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface-950 text-surface-100 antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-600;
+  }
+
+  /* Light mode overrides */
+  html:not(.dark) body {
+    @apply bg-surface-50 text-surface-900;
+  }
+  html:not(.dark) aside {
+    @apply bg-white border-surface-200;
+  }
+  html:not(.dark) .bg-surface-800\/40 {
+    background-color: rgba(255,255,255,0.9) !important;
+    border-color: rgba(203,213,225,0.6) !important;
+  }
+  html:not(.dark) .bg-surface-800\/60 {
+    background-color: rgba(255,255,255,0.95) !important;
+    border-color: rgba(203,213,225,0.6) !important;
+  }
+  html:not(.dark) .bg-surface-900 {
+    @apply bg-white;
+  }
+  html:not(.dark) .bg-surface-800 {
+    @apply bg-surface-100;
+  }
+  html:not(.dark) .text-surface-400 {
+    @apply text-surface-600;
+  }
+  html:not(.dark) .text-surface-200 {
+    @apply text-surface-800;
+  }
+  html:not(.dark) .text-white {
+    @apply text-surface-900;
+  }
+  html:not(.dark) .border-surface-700\/50 {
+    border-color: rgba(203,213,225,0.8) !important;
+  }
+
+  /* Date input fix for dark mode */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+    cursor: pointer;
+  }
+
+  /* Select arrow fix */
+  select option {
+    @apply bg-surface-800 text-white;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Syne', sans-serif;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
